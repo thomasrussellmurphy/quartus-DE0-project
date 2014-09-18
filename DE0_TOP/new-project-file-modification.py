@@ -15,7 +15,7 @@ if (not os.path.basename(here) == 'DE0_TOP') or (not len(sys.argv) > 1):
 name = sys.argv[1]
 desired_name = name.replace(" ", "_")
 
-print desired_name
+print(desired_name)
 
 target = os.path.abspath(here + "/../" + desired_name)
 # print target
