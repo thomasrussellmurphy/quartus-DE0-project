@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 # Incomplete script for creating new projects from the DE0_TOP project
 import os
