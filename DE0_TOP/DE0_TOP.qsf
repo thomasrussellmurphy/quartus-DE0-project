@@ -44,14 +44,6 @@ set_global_assignment -name FLOW_ENABLE_RTL_VIEWER ON
 set_global_assignment -name SMART_RECOMPILE ON
 set_global_assignment -name LAST_QUARTUS_VERSION 13.1
 set_global_assignment -name VERILOG_FILE DE0_TOP.v
-set_global_assignment -name VERILOG_FILE "../common-verilog/SEG7_LUT_4.v"
-set_global_assignment -name VERILOG_FILE "../common-verilog/SEG7_LUT.v"
-set_global_assignment -name VERILOG_FILE "../common-verilog/LEDG_Driver.v"
-set_global_assignment -name VERILOG_FILE "../common-verilog/button_debouncer.v"
-set_global_assignment -name VERILOG_FILE "../common-verilog/synchronizer.v"
-set_global_assignment -name VERILOG_FILE "../common-verilog/synchronizer8.v"
-set_global_assignment -name VERILOG_FILE "../common-verilog/seg7hexdriver.v"
-set_global_assignment -name VERILOG_FILE "../common-verilog/edge_to_pulse.v"
 
 # Pin & Location Assignments
 # ==========================
