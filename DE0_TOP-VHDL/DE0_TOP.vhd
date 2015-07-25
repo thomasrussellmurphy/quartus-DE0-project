@@ -88,7 +88,7 @@ architecture Structural of Basys2Project is
   -- Signal Declarations
 begin
   -- Set unused inout ports to tristate
-  set_tristate: process
+  set_tristate: process ()
   begin
     DRAM_DQ <= (others => 'Z');
     FL_DQ <= (others => 'Z');
