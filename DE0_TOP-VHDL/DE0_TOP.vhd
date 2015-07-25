@@ -83,24 +83,23 @@ entity DE0_TOP is
     GPIO1_CLKOUT : std_logic_vector(1 downto 0);
     GPIO1_D : inout std_logic_vector(31 downto 0)
   );
+end DE0_TOP;
 
 architecture Structural of DE0_TOP is
   -- Signal Declarations
 begin
   -- Set unused inout ports to tristate
-  set_tristate: process ()
-  begin
-    DRAM_DQ <= (others => 'Z');
-    FL_DQ <= (others => 'Z');
-    LCD_DATA <= (others => 'Z');
-    SD_DAT0 <= Z;
-    SD_DAT3 <= Z;
-    SD_CMD <= Z;
-    PS2_KBDAT <= Z;
-    PS2_KBCLK <= Z;
-    PS2_MSDAT <= Z;
-    PS2_MSCLK <= Z;
-    GPIO0_D <= (others => 'Z');
-    GPIO1_D <= (others => 'Z');
-  end process set_tristate;
+  DRAM_DQ <= (others => 'Z');
+  FL_DQ <= (others => 'Z');
+  LCD_DATA <= (others => 'Z');
+  SD_DAT0 <= 'Z';
+  SD_DAT3 <= 'Z';
+  SD_CMD <= 'Z';
+  PS2_KBDAT <= 'Z';
+  PS2_KBCLK <= 'Z';
+  PS2_MSDAT <= 'Z';
+  PS2_MSCLK <= 'Z';
+  GPIO0_D <= (others => 'Z');
+  GPIO1_D <= (others => 'Z');
+
 end Structural;
