@@ -84,7 +84,7 @@ entity DE0_TOP is
     GPIO1_D : inout std_logic_vector(31 downto 0)
   );
 
-architecture Structural of Basys2Project is
+architecture Structural of DE0_TOP is
   -- Signal Declarations
 begin
   -- Set unused inout ports to tristate
