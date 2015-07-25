@@ -25,9 +25,9 @@ entity DE0_TOP is
     LEDG : out std_logic_vector(9 downto 0);
     -- UART
     UART_TXD : out std_logic;
-    UART_RXD : out std_logic;
+    UART_RXD : in std_logic;
     UART_CTS : out std_logic;
-    UART_RTS : out std_logic;
+    UART_RTS : in std_logic;
     -- SDRAM Interface
     DRAM_DQ : inout std_logic_vector(15 downto 0);
     DRAM_ADDR : out std_logic_vector(12 downto 0);
@@ -62,8 +62,8 @@ entity DE0_TOP is
     SD_DAT0 : inout std_logic;
     SD_DAT3 : inout std_logic;
     SD_CMD : inout std_logic;
-    SD_CLK : inout std_logic;
-    SD_WP_N : inout std_logic;
+    SD_CLK : out std_logic;
+    SD_WP_N : in std_logic;
     -- PS2
     PS2_KBDAT : inout std_logic;
     PS2_KBCLK : inout std_logic;
@@ -79,8 +79,8 @@ entity DE0_TOP is
     GPIO0_CLKIN : in std_logic_vector(1 downto 0);
     GPIO0_CLKOUT : out std_logic_vector(1 downto 0);
     GPIO0_D : inout std_logic_vector(31 downto 0);
-    GPIO1_CLKIN : std_logic_vector(1 downto 0);
-    GPIO1_CLKOUT : std_logic_vector(1 downto 0);
+    GPIO1_CLKIN : in std_logic_vector(1 downto 0);
+    GPIO1_CLKOUT : out std_logic_vector(1 downto 0);
     GPIO1_D : inout std_logic_vector(31 downto 0)
   );
 end DE0_TOP;
@@ -88,17 +88,81 @@ end DE0_TOP;
 architecture Structural of DE0_TOP is
   -- Signal Declarations
 begin
+  --
+  -- Set default output states
+
+  -- 7-SEG Display
+  HEX0_D <= (others => '0');
+  HEX0_DP <= '0';
+  HEX1_D <= (others => '0');
+  HEX1_DP <= '0';
+  HEX2_D <= (others => '0');
+  HEX2_DP <= '0';
+  HEX3_D <= (others => '0');
+  HEX3_DP <= '0';
+  -- LED
+  LEDG <= (others => '0');
+  -- UART
+  UART_TXD <= '0';
+  UART_CTS <= '0';
+  -- SDRAM Interface
+  DRAM_ADDR <= (others => '0');
+  DRAM_LDQM <= '0';
+  DRAM_UDQM <= '0';
+  DRAM_WE_N <= '0';
+  DRAM_CAS_N <= '0';
+  DRAM_RAS_N <= '0';
+  DRAM_CS_N <= '0';
+  DRAM_BA_0 <= '0';
+  DRAM_BA_1 <= '0';
+  DRAM_CLK <= '0';
+  DRAM_CKE <= '0';
+  -- Flash Interface
+  FL_ADDR <= (others => '0');
+  FL_WE_N <= '0';
+  FL_RST_N <= '0';
+  FL_OE_N <= '0';
+  FL_CE_N <= '0';
+  FL_WP_N <= '0';
+  FL_BYTE_N <= '0';
+  -- LCD Module 16X2
+  LCD_BLON <= '0';
+  LCD_RW <= '0';
+  LCD_EN <= '0';
+  LCD_RS <= '0';
+  -- SD Card Interface
+  SD_CLK <= '0';
+  -- VGA
+  VGA_HS <= '0';
+  VGA_VS <= '0';
+  VGA_R <= (others => '0');
+  VGA_G <= (others => '0');
+  VGA_B <= (others => '0');
+  -- GPIO
+  GPIO0_CLKOUT <= (others => '0');
+  GPIO1_CLKOUT <= (others => '0');
+
+
+  --
   -- Set unused inout ports to tristate
+
+  -- SDRAM Interface
   DRAM_DQ <= (others => 'Z');
+  -- Flash Interface
   FL_DQ <= (others => 'Z');
+  FL_DQ15_AM1 <= 'Z';
+  -- LCD Module 16X2
   LCD_DATA <= (others => 'Z');
+  -- SD Card Interface
   SD_DAT0 <= 'Z';
   SD_DAT3 <= 'Z';
   SD_CMD <= 'Z';
+  -- PS2
   PS2_KBDAT <= 'Z';
   PS2_KBCLK <= 'Z';
   PS2_MSDAT <= 'Z';
   PS2_MSCLK <= 'Z';
+  -- GPIO
   GPIO0_D <= (others => 'Z');
   GPIO1_D <= (others => 'Z');
 
